@@ -319,7 +319,7 @@ function renderProgress(){
       <span class="st ${due.length && !late.length ? 'ok' : ''}">${stTxt}</span>
       ${late.length ? '<ul>' + late.map(t => `<li>${esc(t[1])} <span class="st">(due ${fmt(dueOf(t))})</span></li>`).join('') + '</ul>' : ''}</div>`;
   };
-  el.innerHTML = `<h2>Who has finished their tasks <small>${canTick ? 'Tick the box next to a task when its owner tells you it is done.' : 'Samar updates this as tasks are finished.'} "Due" means the task's end date has passed.</small></h2>
+  el.innerHTML = `<h2>Who has finished their tasks <small>${canTick ? 'Tick the box next to your task when you finish it.' : 'Team members tick their tasks when they finish them.'} "Due" means the task's end date has passed.</small></h2>
     <div class="pgrid">${PEOPLE.map(p => card(p, all.filter(t => ownerOf(t[0],t[1]).split(/,\s*/).includes(p)))).join('')}
     ${card('Group tasks', all.filter(t => ownerOf(t[0],t[1])==='All'))}</div>`;
 }
@@ -676,7 +676,8 @@ progDoc = { set: async ({keys}) => {
 async function refresh(){
   try { await loadDone(); progLoaded = true; } catch(e) { progLoaded = progLoaded || false; }
   canTick = !!(getTok() && API);
-  document.getElementById('waLink').hidden = !canTick;
+  let waOwner = false; try { waOwner = localStorage.getItem('wa-owner') === '1'; } catch(e) {}
+  document.getElementById('waLink').hidden = !(canTick && waOwner);
   render(); renderProgress();
 }
 // small owner link at the bottom of the page
@@ -684,12 +685,13 @@ async function refresh(){
   const a = document.createElement('p');
   a.style.cssText = 'text-align:center;font-size:12px;opacity:.6;margin:24px 0';
   const btn = document.createElement('a'); btn.href = '#'; btn.style.color = 'inherit';
-  const label = () => btn.textContent = getTok() ? 'Owner: stop ticking on this device' : 'Owner: tick tasks';
+  const label = () => btn.textContent = getTok() ? 'Stop ticking on this device' : 'Team members: tick tasks';
   label();
   btn.addEventListener('click', e => {
     e.preventDefault();
-    if(getTok()){ setTok(null); }
-    else { const t = prompt('Paste your GitHub token (fine-grained, Contents: read and write, for this repository only). It is saved only on this device.'); if(!t) return; setTok(t.trim()); }
+    if(getTok()){ setTok(null); try { localStorage.removeItem('wa-owner'); } catch(e) {} }
+    else { const t = prompt('Paste the team code (the GitHub token Samar shared in the group). It is saved only on this device.'); if(!t) return; setTok(t.trim());
+      try { localStorage.setItem('wa-owner', confirm('Are you Samar? Press OK to also show the WhatsApp button on this device, or Cancel if you are another member.') ? '1' : '0'); } catch(e) {} }
     label(); refresh();
   });
   a.appendChild(btn); document.body.appendChild(a);
