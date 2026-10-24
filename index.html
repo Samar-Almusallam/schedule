@@ -195,10 +195,10 @@ const PH = {
   xl:  {name:'Excel design sheets', c:'--xl'},
   man: {name:'Manual design (hand calculations)', c:'--man'},
   str: {name:'Structural design (Report 2)', c:'--str'},
-  cost:{name:'Quantities, cost & final report', c:'--cost'},
-  p6:  {name:'Primavera P6 schedule', c:'--p6'},
-  co2: {name:'Embodied carbon', c:'--co2'},
   cad: {name:'AutoCAD drawings', c:'--cad'},
+  cost:{name:'Quantities, cost & final report', c:'--cost'},
+  co2: {name:'Embodied carbon', c:'--co2'},
+  p6:  {name:'Primavera P6 schedule', c:'--p6'},
   pres:{name:'Oral presentation', c:'--pres'},
 };
 const DUES = [
@@ -407,6 +407,12 @@ function tasks(cast){
     ['str','Group review','2026-11-22','2026-11-22'],
     ['str','Submit Progress Report 2','2026-11-23',null,true],
 
+    {ph:'cad'},
+    ['cad','Convert structural drawings to DWG, clean grid','2026-10-19','2026-10-21'],
+    ['cad','Architectural plans and area schedule (Ch. 5)','2026-10-19','2026-10-22'],
+    ['cad','Reinforcement details in AutoCAD','2026-11-13','2026-11-18'],
+    ['cad','Final structural drawings and schedules','2026-12-01','2026-12-10'],
+
     {ph:'cost'},
     ['cost','Bill of quantities (concrete, steel)','2026-11-24','2026-11-29'],
     ['cost','Cost: normal vs WGP concrete','2026-11-26','2026-12-01'],
@@ -416,24 +422,18 @@ function tasks(cast){
     ['cost','Group review','2026-12-15','2026-12-16'],
     ['cost','Submit Final Report','2026-12-17',null,true],
 
-    {ph:'p6'},
-    ['p6','WBS and activity list (structural shell)','2026-11-29','2026-12-01'],
-    ['p6','Durations and logic links','2026-12-01','2026-12-03'],
-    ['p6','Resource and cost loading from BOQ','2026-12-03','2026-12-05'],
-    ['p6','Baseline, time and cost reports','2026-12-05','2026-12-07'],
-    ['p6','Compare normal vs WGP schedule cost','2026-12-07','2026-12-08'],
-
     {ph:'co2'},
     ['co2','Collect emission factors (cement, steel, aggregates, glass)','2026-11-24','2026-11-27'],
     ['co2','Embodied carbon per m³ for each mix','2026-11-27','2026-11-29'],
     ['co2','Villa embodied carbon from BOQ','2026-11-30','2026-12-03'],
     ['co2','Compare single villa and repeated housing','2026-12-03','2026-12-06'],
 
-    {ph:'cad'},
-    ['cad','Convert structural drawings to DWG, clean grid','2026-10-19','2026-10-21'],
-    ['cad','Architectural plans and area schedule (Ch. 5)','2026-10-19','2026-10-22'],
-    ['cad','Reinforcement details in AutoCAD','2026-11-13','2026-11-18'],
-    ['cad','Final structural drawings and schedules','2026-12-01','2026-12-10'],
+    {ph:'p6'},
+    ['p6','WBS and activity list (structural shell)','2026-11-29','2026-12-01'],
+    ['p6','Durations and logic links','2026-12-01','2026-12-03'],
+    ['p6','Resource and cost loading from BOQ','2026-12-03','2026-12-05'],
+    ['p6','Baseline, time and cost reports','2026-12-05','2026-12-07'],
+    ['p6','Compare normal vs WGP schedule cost','2026-12-07','2026-12-08'],
 
     {ph:'pres'},
     ['pres','Prepare slides','2026-12-14','2026-12-19'],
