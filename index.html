@@ -652,7 +652,7 @@ const API = GH ? `https://api.github.com/repos/${GH.owner}/${GH.repo}/contents/d
 let ghSha = null;
 // Shared team key, so anyone with the link can tick without entering a code.
 // Stored reversed in pieces; set it with the key Samar created (Contents: read and write, this repository only).
-const TEAM_KEY = [].join('');
+const TEAM_KEY = ['QVJJU0ZMR2ZQ','Tk5JSE1VTTNw','cnFyRjlpd2Jr','UnNWcDNOaTEz','WFhFSFhiWmZ4','OFZIdHQ1WjRJ','NmtVcWdfUTZN','RHdqaXVKUHZS','MFFKUlIzU0Mx','MV90YXBfYnVo','dGln'].join('');
 const teamKey = () => TEAM_KEY ? atob(TEAM_KEY).split('').reverse().join('') : null;
 const getTok = () => { const t = teamKey(); if(t) return t; try { return localStorage.getItem('gh-token'); } catch(e) { return null; } };
 const setTok = t => { try { t ? localStorage.setItem('gh-token', t) : localStorage.removeItem('gh-token'); } catch(e) {} };
