@@ -214,27 +214,27 @@ const OWN = {
   'Chapter 1, Chapter 5 and title page':'Leen',
   'Chapter 2 (2.1–2.4)':'Mariam',
   'Chapter 2 (2.5–2.8) and references':'Lojin',
-  'Chapter 3, fresh results and appendices':'Aya',
+  'Chapter 3, fresh results and appendices':'Ayaa',
   'Chapters 4 and 6':'Samar',
   'Merge, TOC, lists and formatting':'Samar',
   'Add 7-day results to Chapter 4':'Samar',
-  'Abstract':'Aya, Lojin',
+  'Abstract':'Ayaa, Lojin',
   'Final group review':'All',
   'Submit Progress Report 1':'Samar',
   'Trial batch (no admixture, slump test)':'Samar, Lojin',
   'Mixing and casting':'Samar, Mariam',
-  'Demolding, water curing starts':'Samar, Aya',
+  'Demolding, water curing starts':'Samar, Ayaa',
   'Analyze fresh properties (slump, density)':'Samar',
-  '7-day compressive strength':'Samar, Leen, Aya',
+  '7-day compressive strength':'Samar, Leen, Ayaa',
   'Analyze 7-day results and charts':'Samar',
   '28-day compression, split tensile, MOR':'All',
-  'Analyze 28-day compression, split tensile, MOR':'Aya, Leen',
+  'Analyze 28-day compression, split tensile, MOR':'Ayaa, Leen',
   'Select optimum WGP mix':'All',
-  '56-day compressive strength':'Aya, Leen',
-  'Analyze 56-day results and strength gain':'Aya, Leen',
+  '56-day compressive strength':'Ayaa, Leen',
+  'Analyze 56-day results and strength gain':'Ayaa, Leen',
   'Agree on origin, units, levels, numbering':'All',
   'Ground floor model (fix axis, grid)':'Samar',
-  'First floor model':'Aya',
+  'First floor model':'Ayaa',
   'Roof model':'Mariam',
   'Column layout and wall loads':'Lojin',
   'Foundation model and supports':'Leen',
@@ -249,7 +249,7 @@ const OWN = {
   'Beam design sheet (flexure, shear)':'Samar',
   'Column design sheet':'Lojin',
   'Footing design sheet':'Mariam',
-  'Quantities and cost sheet (from designs)':'Aya',
+  'Quantities and cost sheet (from designs)':'Ayaa',
   'Slab manual design (critical panel)':'Leen',
   'Beam manual design (flexure, shear, deflection)':'Samar',
   'Column manual design (axial, biaxial)':'Lojin',
@@ -265,8 +265,8 @@ const OWN = {
   'Write Report 2 chapters':'All',
   'Submit Progress Report 2':'Samar',
   'Bill of quantities (concrete, steel)':'Lojin',
-  'Cost: normal vs WGP concrete':'Aya, Lojin',
-  'Add 56-day results to report':'Aya',
+  'Cost: normal vs WGP concrete':'Ayaa, Lojin',
+  'Add 56-day results to report':'Ayaa',
   'Write final report':'All',
   'Submit Final Report':'Samar',
   'WBS and activity list (structural shell)':'Leen, Mariam',
@@ -274,10 +274,10 @@ const OWN = {
   'Resource and cost loading from BOQ':'Leen, Mariam',
   'Baseline, time and cost reports':'Leen, Mariam',
   'Compare normal vs WGP schedule cost':'Leen, Mariam',
-  'Collect emission factors (cement, steel, aggregates, glass)':'Aya',
-  'Embodied carbon per m³ for each mix':'Aya',
-  'Villa embodied carbon from BOQ':'Aya',
-  'Compare single villa and repeated housing':'Aya',
+  'Collect emission factors (cement, steel, aggregates, glass)':'Ayaa',
+  'Embodied carbon per m³ for each mix':'Ayaa',
+  'Villa embodied carbon from BOQ':'Ayaa',
+  'Compare single villa and repeated housing':'Ayaa',
   'Prepare slides':'All',
   'Convert structural drawings to DWG, clean grid':'Lojin',
   'Architectural plans and area schedule (Ch. 5)':'Leen',
@@ -442,7 +442,7 @@ function tasks(cast){
   ];
 }
 
-const PEOPLE = ['Samar','Leen','Mariam','Lojin','Aya'];
+const PEOPLE = ['Samar','Leen','Mariam','Lojin','Ayaa'];
 let who = 'All';
 try { const h = decodeURIComponent(location.hash.slice(1)).toLowerCase(); const m = PEOPLE.find(p=>p.toLowerCase()===h);
   if(m) who = m; else { const v = localStorage.getItem('gantt-who'); if(v && (v==='All'||PEOPLE.includes(v))) who = v; } } catch(e) {}
@@ -634,7 +634,7 @@ document.getElementById('dayDate').addEventListener('change', e => { if(e.target
 document.getElementById('legend').innerHTML =
   Object.values(PH).map(p=>`<span><i style="background:var(${p.c})"></i>${p.name}</span>`).join('') +
   `<span><i style="background:var(--muted);transform:rotate(45deg);width:10px;height:10px"></i>Milestone</span>`;
-{ const cnt={Samar:0,Leen:0,Mariam:0,Lojin:0,Aya:0};
+{ const cnt={Samar:0,Leen:0,Mariam:0,Lojin:0,Ayaa:0};
   for(const t of tasks('2026-10-17')) if(Array.isArray(t)) for(const n of ownerOf(t[0],t[1]).split(/,\s*/)) if(n in cnt) cnt[n]++;
   document.getElementById('load').innerHTML = '<span style="color:var(--ink);font-weight:600">Tasks per person (besides group tasks):</span>' +
     Object.entries(cnt).map(([n,c])=>`<span>${n} <b style="color:var(--ink)">${c}</b></span>`).join(''); }
