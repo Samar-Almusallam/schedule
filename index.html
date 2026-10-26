@@ -611,7 +611,7 @@ render = function(){
     const lines = PEOPLE.filter(p => who==='All' || p===who).map(p => `\n👤 *${p}*\n` + (per[p].length ? per[p].map(t => `• ${t}`).join('\n') : '• No individual tasks'));
     const grp = per.All.length ? `\n👥 *Everyone*\n` + per.All.map(t => `• ${t}`).join('\n') : '';
     const q = document.getElementById('quote').textContent.replace("Today's motivation",'').trim();
-    const msg = [head, ...lines, grp, q ? `\n💬 ${q}` : ''].filter(Boolean).join('\n');
+    const msg = [head, ...lines, grp, q ? `\n💬 ${q}` : '', `\n🔗 https://samar-almusallam.github.io/schedule/?v=2`].filter(Boolean).join('\n');
     document.getElementById('waLink').href = 'https://wa.me/?text=' + encodeURIComponent(msg); }
   const ul = document.getElementById('dayList');
   if(!on.length){
