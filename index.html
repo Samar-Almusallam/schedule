@@ -135,6 +135,7 @@ span.ck{cursor:default}
 .pp .st.ok{color:var(--ok);font-weight:600}
 .pp ul{margin:0;padding-left:16px;color:var(--late)}
 .pp li{margin:2px 0}
+input[type=date]{direction:ltr;unicode-bidi:isolate;text-align:left}
 </style>
 
 <div class="wrap">
@@ -145,7 +146,7 @@ span.ck{cursor:default}
     </div>
     <div class="cast">
       <label for="castDate">Casting date</label>
-      <input type="date" id="castDate" value="2026-10-17" min="2026-10-10" max="2026-10-31">
+      <input type="date" dir="ltr" lang="en-GB" id="castDate" value="2026-10-17" min="2026-10-10" max="2026-10-31">
     </div>
   </header>
 
@@ -162,7 +163,7 @@ span.ck{cursor:default}
     <div class="dayctl">
       <span class="lbl">What's on</span>
       <button type="button" id="dayPrev" aria-label="Previous day">‹</button>
-      <input type="date" id="dayDate" min="2026-10-16" max="2026-12-22">
+      <input type="date" dir="ltr" lang="en-GB" id="dayDate" min="2026-10-16" max="2026-12-22">
       <button type="button" id="dayNext" aria-label="Next day">›</button>
       <button type="button" id="dayToday">Today</button>
       <span class="dayhead" id="dayHead"></span>
