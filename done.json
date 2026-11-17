@@ -26,6 +26,7 @@
   "staad|Sections and materials",
   "staad|Run analysis and check results",
   "staad|Foundation model and supports",
-  "staad|First floor model"
+  "staad|First floor model",
+  "staad|Roof model"
  ]
 }
