@@ -25,6 +25,7 @@
   "staad|Combine into one model and check",
   "staad|Sections and materials",
   "staad|Run analysis and check results",
-  "staad|Foundation model and supports"
+  "staad|Foundation model and supports",
+  "staad|First floor model"
  ]
 }
