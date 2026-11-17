@@ -20,6 +20,7 @@
   "staad|Column layout and wall loads",
   "p1|Final group review",
   "p1|Submit Progress Report 1",
-  "lab|28-day compression, split tensile, MOR"
+  "lab|28-day compression, split tensile, MOR",
+  "staad|Ground floor model (fix axis, grid)"
  ]
 }
