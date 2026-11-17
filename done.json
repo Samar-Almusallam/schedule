@@ -22,6 +22,7 @@
   "p1|Submit Progress Report 1",
   "lab|28-day compression, split tensile, MOR",
   "staad|Ground floor model (fix axis, grid)",
-  "staad|Combine into one model and check"
+  "staad|Combine into one model and check",
+  "staad|Sections and materials"
  ]
 }
