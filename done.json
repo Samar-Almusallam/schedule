@@ -24,6 +24,7 @@
   "staad|Ground floor model (fix axis, grid)",
   "staad|Combine into one model and check",
   "staad|Sections and materials",
-  "staad|Run analysis and check results"
+  "staad|Run analysis and check results",
+  "staad|Foundation model and supports"
  ]
 }
