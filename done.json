@@ -28,6 +28,7 @@
   "staad|Foundation model and supports",
   "staad|First floor model",
   "staad|Roof model",
-  "xl|Load take-down sheet"
+  "xl|Load take-down sheet",
+  "xl|Slab design sheet (ACI 318M-25)"
  ]
 }
